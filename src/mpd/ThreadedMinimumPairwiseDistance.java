@@ -34,7 +34,29 @@ public class ThreadedMinimumPairwiseDistance implements MinimumPairwiseDistance 
 	    return globalResult;
 
 	    private class one implements Runnable {
-		    @Override
+		    private int[] mininumVal;
+		    private int minimums;
+
+		    private one(int min, int[] value) {
+			    mininumVal = min;
+			    minimums = value;
+			    
+			   // this.mininumVal = mininumVal;
+			   //this.minimum = minimum;
+		    }
+		    @override
 		    public void run() {
-			    int localResult = Integer.MAX_VALUE;
+			    int result = Integer.MAX_VALUE;
+			    for (int i = 0; i < length/2; i++) {
+				    for (int j = 0; j < i; j++) {
+					    int diff = Math.abs(values[i] - values[j]);
+					    if (diff < result) {
+						    result = diff;
+					    }
+				    }
+			    }
+			    updateGlobalResult(result);
+		    }
+	    }
+
 
