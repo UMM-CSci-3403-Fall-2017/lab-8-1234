@@ -6,7 +6,7 @@ public class ThreadedMinimumPairwiseDistance implements MinimumPairwiseDistance 
 
 	public synchronized int updateGlobalResult(int last) {
 		if(globalResult > last) {
-			globalResult = last'
+			globalResult = last;
 		}
 		return globalResult;
 	}
@@ -33,7 +33,7 @@ public class ThreadedMinimumPairwiseDistance implements MinimumPairwiseDistance 
 	    }
 	    return globalResult;
 
-	    private class one implements Runnable {
+	    class one implements Runnable {
 		    private int[] mininumVal;
 		    private int minimums;
 
@@ -44,10 +44,11 @@ public class ThreadedMinimumPairwiseDistance implements MinimumPairwiseDistance 
 			   // this.mininumVal = mininumVal;
 			   //this.minimum = minimum;
 		    }
-		    @override
+		    
+
 		    public void run() {
 			    int result = Integer.MAX_VALUE;
-			    for (int i = 0; i < length/2; i++) {
+			    for (int i = 0; i < values. length/2; i++) {
 				    for (int j = 0; j < i; j++) {
 					    int diff = Math.abs(values[i] - values[j]);
 					    if (diff < result) {
@@ -59,4 +60,78 @@ public class ThreadedMinimumPairwiseDistance implements MinimumPairwiseDistance 
 		    }
 	    }
 
+	    class two implements Runnable {
+		    private int[] mininumVal;
+		    private int minimums;
+		    
+		    private two(int min, int[] value) {
+			    mininumVal = min;
+			    minimums = value;
+		    }
+		    
+
+		    public void run() {
+			    int result = Integer.MAX_VALUE;
+			    for (int i = 0; i < values.length/2; i++) {
+				    for (int j = 0; j < i; j++) {
+					    int dif = Math.abs(values[i] - values[j]);
+					    if (diff < result) {
+						    result = diff;
+					    }
+				    }
+			    }
+			    updateGlobalResult(result);
+		    }
+	    }
+
+	    class three implements Runnable {
+		    private int[] mininumVal;
+		    private int minimums;
+		    
+		    private three(int min, int[] value) {
+			    mininumVal = min;
+			    minimums = value;
+		    }
+		    
+
+		    public void run() {
+			    int result = Integer.MAX_VALUE;
+			    for (int i = 0; i < values.length/2; i++) {
+				    for (int j = 0; j < i; j++) {
+					    int diff = Math.abs(values[i] - values[j]);
+					    if (diff < result) {
+						    result = diff;
+					    }
+				    }
+			    }
+			    updateGlobalResult(result);
+		    }
+	    }
+
+	    class four implements Runnable {
+		    private int[] mininumVal;
+		    private int minimums;
+
+		    private four(int min, int[] value) {
+			    mininumVal = min;
+			    minimums = value;
+		    
+		    }
+		    
+
+		    public void run() {
+			    int reuslt = Integer.MAX_VALUE;
+			    for (int i = 0; i < values.length/2; i++) {
+				    for (int j = 0; j < i; j++) {
+					    int diff = math.abs(values[i] - values[j]);
+					    if (diff < result) {
+						    result = diff;
+					    }
+				    }
+			    }
+			    updateGlobalResult(result);
+		    }
+	    }
+    }
+}
 
