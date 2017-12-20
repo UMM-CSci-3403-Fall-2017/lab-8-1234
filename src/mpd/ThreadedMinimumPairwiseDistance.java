@@ -7,17 +7,17 @@ public class ThreadedMinimumPairwiseDistance implements MinimumPairwiseDistance 
   
     @Override
     public int minimumPairwiseDistance(int[] values) {
-       
+//create thread       
         Thread one = new Thread(new one(values, result));
         Thread two = new Thread(new two(values, result));
         Thread three = new Thread(new three(values, result));
         Thread four = new Thread(new four(values, result));
-        
+//start threads
         one.start();
         two.start();
         three.start();
         four.start();
-        
+//join thread         
         try{
           one.join();
           two.join();
@@ -28,7 +28,7 @@ public class ThreadedMinimumPairwiseDistance implements MinimumPairwiseDistance 
         }
         return result;
     }
-    
+    //below write the thread class method to run threads.
     public class one implements Runnable{
       int possibleMin = Integer.MAX_VALUE;
       int[] values;
